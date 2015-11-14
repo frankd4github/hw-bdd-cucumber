@@ -29,3 +29,4 @@ Scenario: sort movies alphabetically
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
   # your steps here
+  Then I should see "When Harry Met Sally" before "Chicken Run"
