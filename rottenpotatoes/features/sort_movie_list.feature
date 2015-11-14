@@ -24,7 +24,8 @@ Background: movies have been added to database
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
   # your steps here
-
+  Then I should see "Chicken Run" before "The Terminator"
+  
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
   # your steps here
