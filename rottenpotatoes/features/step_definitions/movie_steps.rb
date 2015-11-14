@@ -15,8 +15,12 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  expect(page.body).to match(/#{e1}.*#{e2}/m)
   #page.body.should =~ /#{e1}.*#{e2}/m
+  #expect(page.body).to match(/#{e1}.*#{e2}/m)
+  td_elements = page.all("tbody td")
+  i1 = td_elements.find_index {|td| td.text == e1}
+  i2 = td_elements.find_index {|td| td.text == e2}
+  expect(i1).to be <= i2
   #fail "Unimplemented"
 end
 
